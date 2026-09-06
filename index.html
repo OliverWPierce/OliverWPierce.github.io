@@ -3,24 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oliver Pierce | Resume</title>
+    <title>Oliver Pierce | Student Resume</title>
     <style>
         :root {
-            --bg-color: #f8f9fa;
+            /* Default Dark Gradient Theme */
+            --bg-gradient: linear-gradient(135deg, #1e222a 0%, #153e2b 100%);
+            --card-bg: rgba(255, 255, 255, 0.07);
+            --text-color: #f0f6fc;
+            --subtext-color: #a3b3c2;
+            --accent-color: #4ade80;
+            --border-color: rgba(255, 255, 255, 0.12);
+            --btn-bg: rgba(255, 255, 255, 0.15);
+        }
+
+        [data-theme="light"] {
+            /* Light Mode Theme */
+            --bg-gradient: linear-gradient(135deg, #e2e8f0 0%, #d1fae5 100%);
             --card-bg: #ffffff;
-            --text-color: #212529;
-            --accent-color: #0066cc;
-            --border-color: #e9ecef;
+            --text-color: #0f172a;
+            --subtext-color: #475569;
+            --accent-color: #16a34a;
+            --border-color: #cbd5e1;
+            --btn-bg: #e2e8f0;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            background-color: var(--bg-color);
+            background: var(--bg-gradient);
+            background-attachment: fixed;
             color: var(--text-color);
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem 1rem;
+            min-height: 100vh;
+            box-sizing: border-box;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .theme-toggle-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
+
+        .theme-toggle-btn {
+            background: var(--btn-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            opacity: 0.8;
         }
 
         header {
@@ -31,16 +71,24 @@
         }
 
         h1 { margin: 0; font-size: 2.2rem; }
+        .tagline {
+            margin: 0.3rem 0;
+            color: var(--subtext-color);
+            font-weight: 500;
+        }
+
         .contact-links { margin-top: 0.5rem; }
         .contact-links a {
             color: var(--accent-color);
             text-decoration: none;
             margin: 0 0.5rem;
+            font-weight: bold;
         }
         .contact-links a:hover { text-decoration: underline; }
 
         section {
             background: var(--card-bg);
+            backdrop-filter: blur(8px);
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
@@ -63,7 +111,7 @@
         }
         .item-sub {
             font-style: italic;
-            color: #6c757d;
+            color: var(--subtext-color);
             margin-bottom: 0.3rem;
         }
 
@@ -73,57 +121,143 @@
 </head>
 <body>
 
+    <div class="theme-toggle-container">
+        <button class="theme-toggle-btn" id="themeToggle">☀️ Light Mode</button>
+    </div>
+
     <header>
         <h1>Oliver Pierce</h1>
+        <p class="tagline">Student & Aspiring Game Developer</p>
         <p class="contact-links">
-            <a href="mailto:your.email@example.com">Email</a> |
-            <a href="https://github.com/yourusername" target="_blank">GitHub</a> |
-            <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+            <a href="mailto:oliverwpierce@gmail.com">Email</a> |
+            <a href="https://github.com/OliverWPierce" target="_blank">GitHub</a> |
+            <a href="https://www.linkedin.com/in/oliver-pierce-607661432" target="_blank">LinkedIn</a> |
+            <a href="ResumeOliverPierce.docx" download class="download-link"> Resume</a>
         </p>
     </header>
 
     <section>
         <h2>About Me</h2>
-        <p>A concise 2–3 sentence overview of who you are, your core strengths, and what kind of roles or projects you are focused on.</p>
+        <p>I'm a computer science student at Liberty University. I'm passionate about using my technology and engineering talents to improve the lives of those around me. Specifically, I'm helping people make memories through my video game, Hexatower.</p>
     </section>
 
     <section>
-        <h2>Projects</h2>
+        <h2>College Education</h2>
         <div class="item">
             <div class="item-header">
-                <span>Video Game Project Title</span>
-                <span>2026</span>
+                <span>BS of Computer Science</span>
+                <span>Expected May 2030</span>
             </div>
-            <div class="item-sub">Lead Developer / Designer</div>
+            <div class="item-sub">Liberty University — Lynchburg, VA</div>
             <ul>
-                <li>Designed and developed core game mechanics and systems.</li>
-                <li>Optimized performance and handled deployment assets.</li>
+                <li><strong>Relevant Coursework:</strong> Introduction to Computer Science, Advanced C++, Technical Communication</li>
+                <li><strong>Honors/Activities:</strong> Honors Scholars</li>
             </ul>
         </div>
     </section>
 
     <section>
-        <h2>Experience</h2>
+        <h2>High School Dual Enrollment</h2>
         <div class="item">
-            <div class="item-header">
-                <span>Job Title</span>
-                <span>2024 – Present</span>
-            </div>
-            <div class="item-sub">Company Name</div>
+            <div class="item-sub">Wake Tech Community College — Raleight, NC — GPA: 4.0</div>
             <ul>
-                <li>Key accomplishment or responsibility using active verbs.</li>
-                <li>Impactful outcome or result driven by your work.</li>
+                <li><strong>Relevant Coursework:</strong> Calculus 1 & 2, Calculus-based Physics 1</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="item-sub">Judson College at Southeastern Baptist Theological Seminary — Wake Forest, NC — GPA: 4.0</div>
+            <ul>
+                <li><strong>Relevant Coursework:</strong> Communications, English Composition 1 & 2</li>
             </ul>
         </div>
     </section>
 
     <section>
-        <h2>Skills</h2>
+        <h2>Technical & Core Skills</h2>
         <ul>
-            <li><strong>Technical:</strong> Game Development, HTML/CSS, Git, [Other Tools]</li>
-            <li><strong>Soft Skills:</strong> Problem Solving, Project Management, Collaboration</li>
+            <li><strong>Programming & Game Development Tools:</strong> Rust Programming Language, C++, Github, Bevy Game Engine, Utilizing ECS Code-structures, Blender</li>
+            <li><strong>Soft Skills:</strong> Curiosity, Problem Solving, Driven Learner, Communication, Email </li>
         </ul>
     </section>
 
+    <section>
+        <h2>Featured Project -- Hexatower</h2>
+        <div class="item-sub">Solo Developer | Art and Code produced without generative AI</div>
+            <p>I have developed a local-host server-client multiplayer video game using the Rust programming language and the Bevy Game engine. More information can be found below.</p>
+            <div class="item">
+                <div class="item-header">
+                    <span>Game Design</span>
+                </div>
+                <p>Hexatower is a turn-based video game which resembles chess, except not really. First it takes place on a hexgonal grid, which is itself shaped like a big hexagon. Second, peices have health; to win, your king must outlast all the opponents' kings. Third, each piece has multiple abilities. Fourth, you can move three peices per turn. Last, you can earn coins; coins let you spawn new peices. I've developed this game twice, and am planning on releasing it on Steam later this year.</p>
+</div>
+        <div class="item">
+            <div class="item-header">
+                <span>Prototype Version</span>
+                <span>2025-2026</span>
+            </div>
+
+            <div class="project-media">
+                <video
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    poster="prototype-thumbnail.jpg"
+                    class="project-gif">
+                    <source src="compressed_hexatower_prototype_clip.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+                <p>I began work on this game as a challenge with which to improve my Rust programming skills. However, when I playtested it with friends, they kept asking to play another round. Indeed, they demanded that I release it on Steam so the world could enjoy it too. I showed it to a professional game developer, and he
+                    concurred. However, I was discontent to release it until it had *real* multiplayer functionality. So, having learned a great deal from creating the prototype, I set out to create a new codebase which would ergonomically support local host server-client multiplayer.</p>
+        </div>
+
+
+        <div class="item">
+            <div class="item-header">
+                <span>Fully Multiplayer Version</span>
+                <span>2026-Present</span>
+            </div>
+        <div class="project-media">
+            <video
+                autoplay
+                loop
+                muted
+                playsinline
+                poster="prototype-thumbnail.jpg"
+                class="project-gif">
+                <source src="compressed_hexatower_multiplayer_clip.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+                <p>I redesigned three major parts of the codebase from the original design. First, I developed a new coordinate system for the tiles, reducing the ammount of cached data being stored in memory. Second, I tightened the logical world by enforcing that all changes to the logical world must be validated. Third, using those changes, I added local-host multiplayer support. Further, I changed the slightly changed the game design and the UI based on feedback.</p>
+            <div>
+    </section>
+
+
+    <script>
+        const toggleBtn = document.getElementById('themeToggle');
+
+        // Check for saved user preference, default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            toggleBtn.textContent = '🌙 Dark Mode';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'light') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'dark');
+                toggleBtn.textContent = '☀️ Light Mode';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                toggleBtn.textContent = '🌙 Dark Mode';
+            }
+        });
+    </script>
 </body>
 </html>
